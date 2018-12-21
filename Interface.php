@@ -32,7 +32,7 @@
 			if ($line === 0) {
 				$bounds = explode(" ", $contents);
 			} elseif ($line % 2 === 0) {
-				$moveset = $contents;
+				$moveset = trim($contents);
 			} else {
 				$coordinates = explode(" ", $contents);
 			}
@@ -46,6 +46,7 @@
 				$moves = str_split($moveset);
 				
 				foreach ($moves as $index => $move) {
+
 					if (!empty($move)) {
 						$rover_to_move->move($move);
 					}

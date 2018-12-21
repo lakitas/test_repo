@@ -39,10 +39,12 @@
 				case "L":
 
 				case "R":
+
 					$this->strafe($movement);
 					break;
 
 				case "M":
+
 					$this->take_a_step();
 					break;
 
@@ -58,7 +60,7 @@
 		*/
 		private function strafe($direction="") {
 
-			$current_index = array_search($this->coordinates[2], self::COMPASS);
+			$current_index = array_search(trim($this->coordinates[2]), self::COMPASS);
 
 			$new_index = -1;
 
@@ -69,7 +71,7 @@
 
 				} else {
 
-					$new_index = $current_index++;
+					$new_index = $current_index + 1;
 
 				}
 
@@ -81,7 +83,7 @@
 
 				} else {
 
-					$new_index = $current_index--;
+					$new_index = $current_index - 1;
 
 				}
 
