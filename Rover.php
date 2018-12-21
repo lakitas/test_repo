@@ -64,7 +64,7 @@
 
 			$new_index = -1;
 
-			if ($direction === "L") {
+			if ($direction === "R") {
 				if ($current_index === 3) {
 
 					$new_index = 0;
@@ -75,7 +75,7 @@
 
 				}
 
-			} elseif ($direction === "R") {
+			} elseif ($direction === "L") {
 				
 				if ($current_index === 0) {
 					
@@ -100,7 +100,7 @@
 
 			$new_coordinates = $this->coordinates;
 			
-			switch ($new_coordinates[2]) {
+			switch (trim($new_coordinates[2])) {
 				case "N":
 					$new_coordinates[1]++;
 					break;
