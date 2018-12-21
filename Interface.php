@@ -19,12 +19,20 @@
 	try {
 
 		$filepath = readline("Please specify path to text file with the instructions:");
+		$extented_filepath = "./{$filepath}";
 
 		if (empty($filepath)) {
 			throw new Exception("Empty filepath!");
 		}
 
-		$file = file("./{$filepath}");
+		if (file_exists($extented_filepath)) {
+			$filepath = $extented_filepath;
+		}
+		elseif (!file_exists($filepath)) {
+			throw new Exception("Filepath does not exist!");
+		}
+
+		$file = file($filepath);
 		$moveset = "";
 		$rovers = array();
 
@@ -67,7 +75,6 @@
 	} catch (Exception $e) {
 		
 		echo $e->getMessage() . "\xA";
-		echo "Created on line: {$e->getLine()} \xA";
 
 	}
 
