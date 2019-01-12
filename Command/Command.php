@@ -1,6 +1,6 @@
 <?php
 
-	require_once "./Compass.php";
+	require_once __ROOT__ . "/Compass/Compass.php";
 
 /**
  * 

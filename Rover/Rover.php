@@ -1,6 +1,7 @@
 <?php
 
-	require_once "./Plateau.php";
+	define("__ROOT__", dirname(dirname(__FILE__)));
+	require_once __ROOT__ . "/Plateau/Plateau.php";
 
 	/**
 	*
@@ -32,7 +33,7 @@
 		*/
 		public function move(string $movement="", Plateau $plateau) {
 		
-			require_once "./Command.php";
+			require_once __ROOT__ . "/Command/Command.php";
 
 			$command_center = new Command();
 
@@ -66,6 +67,9 @@
 
 		}
 
+		/*
+		*
+		*/
 		public function pretty_print() {
 
 			echo implode(" ", $this->coordinates);

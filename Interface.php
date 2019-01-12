@@ -2,8 +2,8 @@
 
 	try{
 
-		require_once "./Plateau.php";
-		require_once "./Rover.php";
+		require_once "./Plateau/Plateau.php";
+		require_once "./Rover/Rover.php";
 
 		$input = "5 5
 		1 2 N
