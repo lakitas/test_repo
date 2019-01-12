@@ -15,30 +15,39 @@ class Command
 
 		$current_index = array_search(trim($coordinates[2]), Compass::$map);
 
-		$new_index = -1;
-
-		if ($direction === "R") {
-			if ($current_index === 3) {
-
-				$new_index = 0;
-
-			} else {
-
-				$new_index = $current_index + 1;
-
-			}
-
-		} elseif ($direction === "L") {
+		if ($current_index !== false) {
 			
-			if ($current_index === 0) {
+			$new_index = -1;
+
+			if ($direction === "R") {
+				if ($current_index === 3) {
+
+					$new_index = 0;
+
+				} else {
+
+					$new_index = $current_index + 1;
+
+				}
+
+			} elseif ($direction === "L") {
 				
-				$new_index = 3;
+				if ($current_index === 0) {
+					
+					$new_index = 3;
 
-			} else {
+				} else {
 
-				$new_index = $current_index - 1;
+					$new_index = $current_index - 1;
+
+				}
 
 			}
+
+		} else {
+
+			throw new Exception("Error finding the right direction.");
+			
 
 		}
 
@@ -69,6 +78,8 @@ class Command
 					break;
 				
 				default:
+
+					throw new Exception("Error. Cannot step in that direction.");
 					break;
 			}
 

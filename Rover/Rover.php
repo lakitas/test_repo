@@ -22,12 +22,6 @@
 
 		}
 
-		private function set_coordinates($coordinates=array()) {
-
-			$this->coordinates = $coordinates;
-
-		}
-
 		/**
 		* 
 		*/
@@ -61,7 +55,7 @@
 					break;
 
 				default:
-					//echo "Movement {$movement} is not a valid moveset. Please try another.\xA";
+					throw new Exception("Not a valid moveset.");
 					break;
 			}
 

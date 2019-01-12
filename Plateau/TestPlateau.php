@@ -9,37 +9,35 @@ class TestPlateau
 {
 	
 	private $pass_test;
+	private $error_board = array();
 
 	public function __construct() {
 
 		$this->pass_test = true;
 
-		$pass_test = $this->test_non_numeric();
 		$pass_test = $this->test_out_of_bounds();
 
 	}
 
 	private function test_out_of_bounds():bool {
 		
-		$plateau = new Plateau(-1, -2);
+		try {
+
+			$plateau = new Plateau(-1, -2);
+			
+		} catch (Exception $e) {
+
+			$this->error_board[] = $e->getMessage();
+			
+		}
 
 		return true;
 
 	}
 
-	private function test_non_numeric():bool {
+	public function get_passable():bool {
 
-		try {
-
-			$plateau = new Plateau("test", "test");
-
-			return true;
-			
-		} catch (Exception $e) {
-
-			return true;
-			
-		}
+		return $this->pass_test;
 
 	}
 
