@@ -67,7 +67,7 @@
 		public function pretty_print() {
 
 			echo implode(" ", $this->coordinates);
-			echo "\xA";
+			echo "\xA<br>";
 
 		}
 
